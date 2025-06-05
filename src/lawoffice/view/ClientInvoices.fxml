@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.geometry.Insets?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="lawoffice.controller.ClientInvoicesController"
+            stylesheets="@/lawoffice/css/dashboard.css"
+            style="-fx-background-color: #F5F5DC;">
+
+    <!-- Header -->
+    <top>
+        <HBox alignment="CENTER_LEFT" spacing="15">
+            <padding>
+                <Insets top="15" right="15" bottom="15" left="15"/>
+            </padding>
+            <Label text="   My Invoices" style="-fx-font-size: 22px; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-color: #556B2F; -fx-padding: 10;"/>
+        </HBox>
+    </top>
+
+    <!-- Invoice Table -->
+    <center>
+        <VBox spacing="20" alignment="CENTER" style="-fx-padding: 30;">
+            <TableView fx:id="invoiceTable" prefHeight="400" style="-fx-background-color: white;">
+                <columns>
+                    <TableColumn fx:id="invoiceIdCol" text="Invoice ID" prefWidth="100"/>
+                    <TableColumn fx:id="caseTitleCol" text="Case Title" prefWidth="200"/>
+                    <TableColumn fx:id="amountCol" text="Amount" prefWidth="100"/>
+                    <TableColumn fx:id="dueDateCol" text="Due Date" prefWidth="140"/>
+                    <TableColumn fx:id="statusCol" text="Status" prefWidth="100"/>
+                </columns>
+            </TableView>
+        </VBox>
+    </center>
+
+    <!-- Footer -->
+    <bottom>
+        <HBox alignment="CENTER" spacing="15" style="-fx-padding: 20;">
+            <Button text="Back to Dashboard"
+                    onAction="#goBack"
+                    style="-fx-background-color: white; -fx-border-color: #556B2F; -fx-text-fill: #556B2F; -fx-background-radius: 20; -fx-font-weight: bold;"/>
+        </HBox>
+    </bottom>
+</BorderPane>

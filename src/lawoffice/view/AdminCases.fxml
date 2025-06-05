@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="lawoffice.controller.AdminCasesController"
+            stylesheets="@/lawoffice/css/dashboard.css">
+
+    <!-- Header -->
+    <top>
+        <HBox alignment="CENTER_LEFT" spacing="20" style="-fx-background-color: #556B2F; -fx-padding: 15;">
+            <Label text="Case Management" style="-fx-font-size: 20px; -fx-text-fill: white; -fx-font-weight: bold;"/>
+        </HBox>
+    </top>
+
+    <!-- Center Content -->
+    <center>
+        <VBox spacing="20" style="-fx-padding: 30;">
+            <TableView fx:id="caseTable" prefHeight="350">
+                <columns>
+                   <TableColumn fx:id="idCol" text="Case ID" prefWidth="70"/>
+      			  <TableColumn fx:id="clientCol" text="Client" prefWidth="160"/>
+     			   <TableColumn fx:id="titleCol" text="Title" prefWidth="120"/>
+     			   <TableColumn fx:id="statusCol" text="Status" prefWidth="100"/>
+   			     <TableColumn fx:id="startDateCol" text="Start Date" prefWidth="120"/>
+   			   	  <TableColumn fx:id="appointmentTimeCol" text="Time" prefWidth="100"/>
+                </columns>
+            </TableView>
+
+            <HBox spacing="10" alignment="CENTER_LEFT">
+                <Label text="Select Lawyer:"/>
+                <ComboBox fx:id="lawyerComboBox" prefWidth="200"/>
+                <Button text="Assign Lawyer" onAction="#assignLawyer"/>
+                <Button text="Update Status" onAction="#updateStatus"/>
+            </HBox>
+
+            <!-- Back Button -->
+            <HBox alignment="CENTER_RIGHT" style="-fx-padding: 10 0 0 0;">
+                <Button text="Back to Dashboard" onAction="#goBackToDashboard"
+                        style="-fx-background-color: white; -fx-border-color: #556B2F; -fx-text-fill: #556B2F; -fx-font-weight: bold;"/>
+            </HBox>
+        </VBox>
+    </center>
+</BorderPane>

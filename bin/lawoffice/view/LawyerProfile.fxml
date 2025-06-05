@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="lawoffice.controller.LawyerProfileController"
+            stylesheets="@/lawoffice/css/dashboard.css"
+            style="-fx-background-color: #F5F5DC;">
+
+    <top>
+        <Label text="My Profile"
+               style="-fx-font-size: 24px; -fx-padding: 20; -fx-font-weight: bold; -fx-text-fill: #556B2F;"
+               BorderPane.alignment="CENTER"/>
+    </top>
+
+    <center>
+        <GridPane hgap="15" vgap="15" alignment="CENTER"
+                  style="-fx-background-color: white; -fx-border-color: #556B2F; -fx-border-width: 2; -fx-padding: 30;">
+            <Label text="Full Name:" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+            <Label fx:id="nameLabel" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+
+            <Label text="Email:" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+            <TextField fx:id="emailField" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+
+            <Label text="Phone:" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+            <TextField fx:id="phoneField" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+
+            <Label text="Address:" GridPane.rowIndex="3" GridPane.columnIndex="0"/>
+            <TextField fx:id="addressField" GridPane.rowIndex="3" GridPane.columnIndex="1"/>
+
+            <Label text="Specialization:" GridPane.rowIndex="4" GridPane.columnIndex="0"/>
+            <Label fx:id="specializationLabel" GridPane.rowIndex="4" GridPane.columnIndex="1"/>
+
+            <Label text="Title:" GridPane.rowIndex="5" GridPane.columnIndex="0"/>
+            <Label fx:id="titleLabel" GridPane.rowIndex="5" GridPane.columnIndex="1"/>
+        </GridPane>
+    </center>
+
+    <bottom>
+        <HBox spacing="20" alignment="CENTER" style="-fx-padding: 20;">
+            <Button text="Update" onAction="#onUpdate"
+                    style="-fx-background-color: #556B2F; -fx-text-fill: white; -fx-font-weight: bold;"/>
+            <Button text="Back to Dashboard" onAction="#onBack"
+                    style="-fx-background-color: white; -fx-border-color: #556B2F; -fx-text-fill: #556B2F;"/>
+            <Label fx:id="statusMessage" textFill="red"/>
+        </HBox>
+    </bottom>
+</BorderPane>

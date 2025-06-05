@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="lawoffice.controller.AdminSchedulesController"
+            stylesheets="@/lawoffice/css/dashboard.css"
+            style="-fx-background-color: #F5F0E1;"> <!-- Light Beige -->
+ <!-- TOP BAR -->
+    <top>
+        <HBox spacing="20" alignment="CENTER_LEFT" style="-fx-background-color: #556B2F; -fx-padding: 15;">
+            <Label text="Admin Schedule Management"
+                   style="-fx-font-size: 20px; -fx-text-fill: white; -fx-font-weight: bold;"/>
+        </HBox>
+    </top>
+
+    <!-- CENTER - Table -->
+    <center>
+        <VBox spacing="15" alignment="CENTER" style="-fx-padding: 20;">
+            <TableView fx:id="scheduleTable" prefHeight="400" style="-fx-background-color: white;">
+                <columns>
+                    <TableColumn fx:id="idCol" text="ID" prefWidth="80"/>
+                    <TableColumn fx:id="clientCol" text="Client" prefWidth="150"/>
+                    <TableColumn fx:id="lawyerCol" text="Lawyer" prefWidth="150"/>
+                    <TableColumn fx:id="dateCol" text="Date/Time" prefWidth="160"/>
+                    <TableColumn fx:id="statusCol" text="Status" prefWidth="100"/>
+                </columns>
+            </TableView>
+        </VBox>
+    </center>
+
+    <!-- BOTTOM - Actions -->
+    <bottom>
+        <HBox spacing="15" alignment="CENTER" style="-fx-padding: 20;">
+            <Button text="Mark Completed" onAction="#markCompleted"
+                    style="-fx-background-color: #556B2F; -fx-text-fill: white; -fx-background-radius: 20;"/>
+
+            <Button text="Mark Paid" onAction="#markPaid"
+                    style="-fx-background-color: #556B2F; -fx-text-fill: white; -fx-background-radius: 20;"/>
+
+            <Button text="Back to Dashboard" onAction="#goBack"
+                    style="-fx-background-color: white; -fx-border-color: #556B2F; -fx-text-fill: #556B2F; -fx-background-radius: 20;"/>
+        </HBox>
+    </bottom>
+</BorderPane>

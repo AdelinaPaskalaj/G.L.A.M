@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane prefHeight="720.0" prefWidth="1280.0"
+            xmlns="http://javafx.com/javafx/21"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="lawoffice.controller.WelcomeController"
+            stylesheets="@/lawoffice/css/welcome.css">
+
+   <left>
+      <AnchorPane prefWidth="450" styleClass="left-pane" BorderPane.alignment="CENTER">
+         <children>
+            <VBox layoutX="100" layoutY="140" spacing="20" alignment="CENTER">
+               <children>
+                  <ImageView fitWidth="250" fitHeight="250" preserveRatio="true">
+                     <image>
+                        <Image url="@/lawoffice/resources/logo.png" />
+                     </image>
+                  </ImageView>
+
+                  <Label text="A S Law Firm" styleClass="brand-title"/>
+                  <Line startX="0" endX="200" styleClass="brand-line"/>
+                  <Label text="Where Law Meets Innovation" styleClass="brand-subtitle"/>
+               </children>
+            </VBox>
+         </children>
+      </AnchorPane>
+   </left>
+
+   <center>
+      <AnchorPane styleClass="center-pane" prefWidth="830" BorderPane.alignment="CENTER">
+         <children>
+            <VBox layoutX="280" layoutY="100" spacing="30" alignment="CENTER">
+               <children>
+                  <Label text="Welcome" styleClass="welcome-text-green">
+                     <font><Font size="60"/></font>
+                  </Label>
+
+                  <Button fx:id="adminLoginButton" text="Continue as Admin"
+                          prefWidth="270" prefHeight="60" styleClass="login-button"
+                          onAction="#adminLoginButtonOnAction"/>
+
+                  <Button fx:id="lawyerLoginButton" text="Continue as Lawyer"
+                          prefWidth="270" prefHeight="60" styleClass="login-button"
+                          onAction="#lawyerLoginButtonOnAction"/>
+
+                  <Button fx:id="clientLoginButton" text="Continue as Client"
+                          prefWidth="270" prefHeight="60" styleClass="login-button"
+                          onAction="#clientLoginButtonOnAction"/>
+
+                  <Label text="Not registered?" styleClass="register-text"/>
+                  <Label fx:id="registerLink" text="Register here" styleClass="register-link"
+                         onMouseClicked="#registerLinkOnClick"/>
+               </children>
+            </VBox>
+         </children>
+      </AnchorPane>
+   </center>
+</BorderPane>

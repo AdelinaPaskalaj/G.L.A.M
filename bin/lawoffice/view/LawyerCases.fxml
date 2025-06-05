@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="lawoffice.controller.LawyerCasesController"
+            stylesheets="@/lawoffice/css/dashboard.css">
+
+    <!-- Sidebar -->
+    <left>
+        <VBox spacing="15" styleClass="sidebar">
+            <padding>
+                <Insets top="20" right="20" bottom="20" left="20"/>
+            </padding>
+            <Label text="LAWYER PANEL" styleClass="sidebar-title"/>
+            <Button text="Dashboard" onAction="#goToDashboard" styleClass="sidebar-button"/>
+            <Button text="Cases" onAction="#goToCases" styleClass="sidebar-button"/>
+            <Button text="Appointments" onAction="#goToAppointments" styleClass="sidebar-button"/>
+            <Button text="Logout" onAction="#onLogout" styleClass="logout-button"/>
+        </VBox>
+    </left>
+
+    <!-- Case Management Center Panel -->
+    <center>
+        <VBox spacing="20" styleClass="dashboard-content">
+            <padding>
+                <Insets top="20" right="20" bottom="20" left="20"/>
+            </padding>
+
+            <Label text="Assigned Cases" styleClass="section-title"/>
+
+            <TableView fx:id="caseTable" prefHeight="300">
+                <columns>
+                    <TableColumn fx:id="caseIdCol" text="Case ID" prefWidth="80"/>
+                    <TableColumn fx:id="caseTitleCol" text="Title" prefWidth="150"/>
+                    <TableColumn fx:id="caseStatusCol" text="Status" prefWidth="100"/>
+                    <TableColumn fx:id="caseDescriptionCol" text="Description" prefWidth="300"/>
+                </columns>
+            </TableView>
+
+            <HBox spacing="10">
+                <Button text="Update Status" onAction="#updateCaseStatus"/>
+                <Button text="Update Description" onAction="#updateCaseDescription"/>
+            </HBox>
+        </VBox>
+    </center>
+</BorderPane>

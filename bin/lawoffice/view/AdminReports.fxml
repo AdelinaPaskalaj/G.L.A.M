@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="lawoffice.controller.AdminReportsController"
+            stylesheets="@/lawoffice/css/dashboard.css"
+            style="-fx-background-color: #F5F0E1;">
+
+    <!-- TOP BAR -->
+    <top>
+        <HBox spacing="10" alignment="CENTER_LEFT" style="-fx-background-color: #556B2F;">
+            <padding>
+                <Insets top="15" right="15" bottom="15" left="15"/>
+            </padding>
+            <Label text="Reports"
+                   style="-fx-text-fill: white; -fx-font-size: 20px; -fx-font-weight: bold;"/>
+        </HBox>
+    </top>
+
+    <!-- MAIN CONTENT -->
+    <center>
+        <VBox spacing="20"
+              style="-fx-background-color: white; -fx-padding: 30; -fx-background-radius: 10; -fx-effect: dropshadow(gaussian, #999999, 5, 0.5, 0, 2);">
+
+            <HBox spacing="15" alignment="CENTER_LEFT">
+                <Label text="Select Report:" style="-fx-font-size: 16px;"/>
+                <ComboBox fx:id="reportComboBox" prefWidth="250"/>
+                <Button text="Generate" onAction="#generateReport"
+                        style="-fx-background-color: #556B2F; -fx-text-fill: white; -fx-background-radius: 20; -fx-font-weight: bold;"/>
+            </HBox>
+
+            <TextArea fx:id="reportArea" prefHeight="400" wrapText="true"
+                      style="-fx-border-color: #DDD; -fx-border-radius: 8; -fx-font-size: 14px;"/>
+
+        </VBox>
+    </center>
+</BorderPane>

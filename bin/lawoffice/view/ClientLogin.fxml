@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane xmlns="http://javafx.com/javafx/21"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="lawoffice.controller.ClientLoginController"
+            prefWidth="1280" prefHeight="720"
+            stylesheets="@/lawoffice/css/welcome.css">
+
+    <!-- Left Panel with Logo and Text -->
+    <left>
+        <AnchorPane prefWidth="450" styleClass="left-pane" BorderPane.alignment="CENTER">
+            <children>
+                <VBox layoutX="100" layoutY="140" spacing="20" alignment="CENTER">
+                    <children>
+                        <ImageView fitWidth="250" fitHeight="250" preserveRatio="true">
+                            <image>
+                                <Image url="@/lawoffice/resources/logo.png"/>
+                            </image>
+                        </ImageView>
+
+                        <Label text="A S Law Firm" styleClass="brand-title"/>
+                        <Line startX="0" endX="200" styleClass="brand-line"/>
+                        <Label text="Where Law Meets Innovation" styleClass="brand-subtitle"/>
+                    </children>
+                </VBox>
+            </children>
+        </AnchorPane>
+    </left>
+
+    <!-- Center Login Form -->
+    <center>
+        <AnchorPane styleClass="center-pane" BorderPane.alignment="CENTER">
+            <children>
+                <VBox layoutX="250" layoutY="180" spacing="20" alignment="CENTER">
+
+                    <Label text="Client Login" styleClass="welcome-text-green">
+                        <font><Font size="36"/></font>
+                    </Label>
+
+                    <HBox spacing="10" alignment="CENTER_LEFT">
+                        <Label text="Email:" prefWidth="100"/>
+                        <TextField fx:id="emailField" prefWidth="300"/>
+                    </HBox>
+
+                    <HBox spacing="10" alignment="CENTER_LEFT">
+                        <Label text="Password:" prefWidth="100"/>
+                        <PasswordField fx:id="passwordField" prefWidth="300"/>
+                    </HBox>
+
+                    <HBox spacing="20" alignment="CENTER">
+                        <Button text="Login" onAction="#onLogin"
+                                styleClass="login-button" prefWidth="120"/>
+                        <Button text="Back" onAction="#onBack"
+                                styleClass="outline-button" prefWidth="120"/>
+                    </HBox>
+
+                    <Label fx:id="statusLabel" textFill="red"/>
+                </VBox>
+            </children>
+        </AnchorPane>
+    </center>
+</BorderPane>

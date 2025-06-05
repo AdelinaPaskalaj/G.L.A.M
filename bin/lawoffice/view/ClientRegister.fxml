@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane xmlns="http://javafx.com/javafx/21"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="lawoffice.controller.ClientRegisterController"
+            prefWidth="1280" prefHeight="720"
+            stylesheets="@/lawoffice/css/welcome.css">
+
+    <!-- Left Panel -->
+    <left>
+        <AnchorPane prefWidth="450" styleClass="left-pane" BorderPane.alignment="CENTER">
+            <children>
+                <VBox layoutX="100" layoutY="140" spacing="20" alignment="CENTER">
+                    <children>
+                        <ImageView fitWidth="250" fitHeight="250" preserveRatio="true">
+                            <image>
+                                <Image url="@/lawoffice/resources/logo.png"/>
+                            </image>
+                        </ImageView>
+
+                        <Label text="A S Law Firm" styleClass="brand-title"/>
+                        <Line startX="0" endX="200" styleClass="brand-line"/>
+                        <Label text="Where Law Meets Innovation" styleClass="brand-subtitle"/>
+                    </children>
+                </VBox>
+            </children>
+        </AnchorPane>
+    </left>
+
+    <!-- Center Registration Form -->
+    <center>
+        <AnchorPane styleClass="center-pane" BorderPane.alignment="CENTER">
+            <children>
+                <VBox layoutX="220" layoutY="100" spacing="15" alignment="CENTER">
+
+                    <Label text="Client Registration" styleClass="welcome-text-green">
+                        <font><Font size="36"/></font>
+                    </Label>
+
+                    <HBox spacing="10" alignment="CENTER_LEFT">
+                        <Label text="Personal ID:" prefWidth="120"/>
+                        <TextField fx:id="personalIdField" promptText="e.g. 12345-1234567-1" prefWidth="300"/>
+                    </HBox>
+
+                    <HBox spacing="10" alignment="CENTER_LEFT">
+                        <Label text="First Name:" prefWidth="120"/>
+                        <TextField fx:id="firstNameField" prefWidth="300"/>
+                    </HBox>
+
+                    <HBox spacing="10" alignment="CENTER_LEFT">
+                        <Label text="Last Name:" prefWidth="120"/>
+                        <TextField fx:id="lastNameField" prefWidth="300"/>
+                    </HBox>
+
+                    <HBox spacing="10" alignment="CENTER_LEFT">
+                        <Label text="Email:" prefWidth="120"/>
+                        <TextField fx:id="emailField" prefWidth="300"/>
+                    </HBox>
+
+                    <HBox spacing="10" alignment="CENTER_LEFT">
+                        <Label text="Password:" prefWidth="120"/>
+                        <PasswordField fx:id="passwordField" prefWidth="300"/>
+                    </HBox>
+
+                    <HBox spacing="10" alignment="CENTER_LEFT">
+                        <Label text="Phone:" prefWidth="120"/>
+                        <TextField fx:id="phoneField" prefWidth="300"/>
+                    </HBox>
+                    
+					<HBox spacing="10" alignment="CENTER_LEFT">
+  						<Label text="Address:" prefWidth="120"/>
+    					<TextField fx:id="addressField" prefWidth="300"/>
+					</HBox>
+                    <HBox spacing="20" alignment="CENTER">
+                        <Button text="Register" onAction="#onRegister"
+                                styleClass="login-button" prefWidth="140"/>
+                        <Button text="Back" onAction="#onBack"
+                                styleClass="outline-button" prefWidth="140"/>
+                    </HBox>
+
+                    <Label fx:id="statusLabel" textFill="red"/>
+                </VBox>
+            </children>
+        </AnchorPane>
+    </center>
+</BorderPane>

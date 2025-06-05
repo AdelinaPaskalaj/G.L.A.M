@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="lawoffice.controller.AdminDashboardController"
+            stylesheets="@/lawoffice/css/dashboard.css">
+
+    <!-- Sidebar -->
+    <left>
+        <VBox spacing="15" alignment="TOP_CENTER" prefWidth="200" styleClass="sidebar">
+            <Label text="Admin Panel" styleClass="sidebar-title"/>
+            <VBox spacing="10">
+                <Button styleClass="nav-button" onAction="#goToDashboard">
+                    <graphic>
+                        <HBox spacing="10" alignment="CENTER_LEFT">
+                            <ImageView fitWidth="22" fitHeight="22">
+                                <image><Image url="@/lawoffice/resources/dashboard.png"/></image>
+                            </ImageView>
+                            <Label text="Dashboard" textFill="white"/>
+                        </HBox>
+                    </graphic>
+                </Button>
+                <Button styleClass="nav-button" onAction="#goToUsers">
+                    <graphic>
+                        <HBox spacing="10" alignment="CENTER_LEFT">
+                            <ImageView fitWidth="22" fitHeight="22">
+                                <image><Image url="@/lawoffice/resources/users.png"/></image>
+                            </ImageView>
+                            <Label text="Users" textFill="white"/>
+                        </HBox>
+                    </graphic>
+                </Button>
+                <Button styleClass="nav-button" onAction="#goToCases">
+                    <graphic>
+                        <HBox spacing="10" alignment="CENTER_LEFT">
+                            <ImageView fitWidth="22" fitHeight="22">
+                                <image><Image url="@/lawoffice/resources/activecases.png"/></image>
+                            </ImageView>
+                            <Label text="Cases" textFill="white"/>
+                        </HBox>
+                    </graphic>
+                </Button>
+                <Button styleClass="nav-button" onAction="#goToSchedules">
+                    <graphic>
+                        <HBox spacing="10" alignment="CENTER_LEFT">
+                            <ImageView fitWidth="22" fitHeight="22">
+                                <image><Image url="@/lawoffice/resources/appointments.png"/></image>
+                            </ImageView>
+                            <Label text="Schedules" textFill="white"/>
+                        </HBox>
+                    </graphic>
+                </Button>
+                <Button styleClass="nav-button" onAction="#goToInvoices">
+                    <graphic>
+                        <HBox spacing="10" alignment="CENTER_LEFT">
+                            <ImageView fitWidth="22" fitHeight="22">
+                                <image><Image url="@/lawoffice/resources/invoices.png"/></image>
+                            </ImageView>
+                            <Label text="Invoices" textFill="white"/>
+                        </HBox>
+                    </graphic>
+                </Button>
+                <Button styleClass="nav-button" onAction="#goToReports">
+                    <graphic>
+                        <HBox spacing="10" alignment="CENTER_LEFT">
+                            <ImageView fitWidth="22" fitHeight="22">
+                                <image><Image url="@/lawoffice/resources/reports.png"/></image>
+                            </ImageView>
+                            <Label text="Reports" textFill="white"/>
+                        </HBox>
+                    </graphic>
+                </Button>
+                <Button styleClass="nav-button" onAction="#goToNotifications">
+                    <graphic>
+                        <HBox spacing="10" alignment="CENTER_LEFT">
+                            <ImageView fitWidth="22" fitHeight="22">
+                                <image><Image url="@/lawoffice/resources/notifications.png"/></image>
+                            </ImageView>
+                            <Label text="Notifications" textFill="white"/>
+                        </HBox>
+                    </graphic>
+                </Button>
+            </VBox>
+            <Pane VBox.vgrow="ALWAYS"/>
+            <Button styleClass="nav-button" onAction="#onLogout">
+                <graphic>
+                    <HBox spacing="10" alignment="CENTER_LEFT">
+                        <ImageView fitWidth="22" fitHeight="22">
+                            <image><Image url="@/lawoffice/resources/logout.png"/></image>
+                        </ImageView>
+                        <Label text="Logout" textFill="white"/>
+                    </HBox>
+                </graphic>
+            </Button>
+        </VBox>
+    </left>
+
+    <!-- Top Bar -->
+    <top>
+        <HBox alignment="CENTER_RIGHT" styleClass="top-bar">
+            <padding><Insets top="15" right="20" bottom="15" left="20"/></padding>
+            <Label fx:id="adminWelcomeLabel" styleClass="welcome-text-green"/>
+        </HBox>
+    </top>
+
+    <!-- Main Content -->
+    <center>
+        <VBox spacing="20">
+            <padding><Insets top="20" right="30" bottom="20" left="30"/></padding>
+
+            <!-- Dashboard Cards -->
+            <HBox spacing="20">
+                <VBox styleClass="card" alignment="CENTER">
+                    <ImageView fitWidth="36" fitHeight="36">
+                        <image><Image url="@/lawoffice/resources/users.png"/></image>
+                    </ImageView>
+                    <Label text="Total Users" styleClass="card-title"/>
+                    <Label fx:id="totalUsersLabel" styleClass="card-value"/>
+                </VBox>
+                <VBox styleClass="card" alignment="CENTER">
+                    <ImageView fitWidth="36" fitHeight="36">
+                        <image><Image url="@/lawoffice/resources/totalcases.png"/></image>
+                    </ImageView>
+                    <Label text="Open Cases" styleClass="card-title"/>
+                    <Label fx:id="openCasesLabel" styleClass="card-value"/>
+                </VBox>
+                <VBox styleClass="card" alignment="CENTER">
+                    <ImageView fitWidth="36" fitHeight="36">
+                        <image><Image url="@/lawoffice/resources/appointments.png"/></image>
+                    </ImageView>
+                    <Label text="Schedules" styleClass="card-title"/>
+                    <Label fx:id="clientSchedulesLabel" styleClass="card-value"/>
+                </VBox>
+                <VBox styleClass="card" alignment="CENTER">
+                    <ImageView fitWidth="36" fitHeight="36">
+                        <image><Image url="@/lawoffice/resources/invoices.png"/></image>
+                    </ImageView>
+                    <Label text="Invoices" styleClass="card-title"/>
+                    <Label fx:id="invoicesLabel" styleClass="card-value"/>
+                </VBox>
+            </HBox>
+
+            <!-- Action Buttons -->
+           
+
+            <!-- Recent Appointments Table -->
+            <Label text="Upcoming Appointments" styleClass="section-title"/>
+            <TableView fx:id="recentAppointmentsTable" prefHeight="220">
+                <columns>
+                    <TableColumn fx:id="clientCol" text="Client" prefWidth="160"/>
+                    <TableColumn fx:id="lawyerCol" text="Lawyer" prefWidth="160"/>
+                    <TableColumn fx:id="dateCol" text="Date" prefWidth="120"/>
+                    <TableColumn fx:id="timeCol" text="Time" prefWidth="100"/>
+                </columns>
+            </TableView>
+        </VBox>
+    </center>
+</BorderPane>

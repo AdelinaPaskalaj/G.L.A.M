@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="lawoffice.controller.LawyerDashboardController"
+            stylesheets="@/lawoffice/css/dashboard.css">
+
+    <left>
+        <VBox spacing="15" alignment="TOP_CENTER" prefWidth="200" styleClass="sidebar">
+            <Label text="Lawyer Panel" styleClass="sidebar-title"/>
+            <VBox spacing="10">
+                <Button styleClass="nav-button" onAction="#onDashboardClicked">
+                    <graphic>
+                        <HBox spacing="10" alignment="CENTER_LEFT">
+                            <ImageView fitWidth="22" fitHeight="22">
+                                <image><Image url="@/lawoffice/resources/dashboard.png"/></image>
+                            </ImageView>
+                            <Label text="Dashboard" textFill="white"/>
+                        </HBox>
+                    </graphic>
+                </Button>
+                <Button styleClass="nav-button" onAction="#onAppointmentsClicked">
+                    <graphic>
+                        <HBox spacing="10" alignment="CENTER_LEFT">
+                            <ImageView fitWidth="22" fitHeight="22">
+                                <image><Image url="@/lawoffice/resources/appointments.png"/></image>
+                            </ImageView>
+                            <Label text="Appointments" textFill="white"/>
+                        </HBox>
+                    </graphic>
+                </Button>
+                <Button styleClass="nav-button" onAction="#onProfileClicked">
+                    <graphic>
+                        <HBox spacing="10" alignment="CENTER_LEFT">
+                            <ImageView fitWidth="22" fitHeight="22">
+                                <image><Image url="@/lawoffice/resources/profile.png"/></image>
+                            </ImageView>
+                            <Label text="Profile" textFill="white"/>
+                        </HBox>
+                    </graphic>
+                </Button>
+            </VBox>
+            <Pane VBox.vgrow="ALWAYS"/>
+            <Button styleClass="nav-button" onAction="#onLogout">
+                <graphic>
+                    <HBox spacing="10" alignment="CENTER_LEFT">
+                        <ImageView fitWidth="22" fitHeight="22">
+                            <image><Image url="@/lawoffice/resources/logout.png"/></image>
+                        </ImageView>
+                        <Label text="Logout" textFill="white"/>
+                    </HBox>
+                </graphic>
+            </Button>
+        </VBox>
+    </left>
+
+    <top>
+        <HBox alignment="CENTER_RIGHT" styleClass="top-bar">
+            <padding><Insets top="15" right="20" bottom="15" left="20"/></padding>
+            <Label fx:id="welcomeLabel" styleClass="welcome-text-green"/>
+        </HBox>
+    </top>
+
+    <center>
+        <StackPane fx:id="contentPane">
+            <!-- Dashboard Panel -->
+            <VBox fx:id="dashboardPane" spacing="20" styleClass="dashboard-content">
+                <padding><Insets top="30" right="30" bottom="30" left="30"/></padding>
+
+                <!-- Overview Cards -->
+                <HBox spacing="20">
+                    <VBox styleClass="card" alignment="CENTER">
+                        <ImageView fitWidth="36" fitHeight="36">
+                            <image><Image url="@/lawoffice/resources/totalcases.png"/></image>
+                        </ImageView>
+                        <Label text="Total Cases" styleClass="card-title"/>
+                        <Label fx:id="totalCasesLabel" styleClass="card-value"/>
+                    </VBox>
+                    <VBox styleClass="card" alignment="CENTER">
+                        <ImageView fitWidth="36" fitHeight="36">
+                            <image><Image url="@/lawoffice/resources/activecases.png"/></image>
+                        </ImageView>
+                        <Label text="Active Cases" styleClass="card-title"/>
+                        <Label fx:id="activeCasesLabel" styleClass="card-value"/>
+                    </VBox>
+                    <VBox styleClass="card" alignment="CENTER">
+                        <ImageView fitWidth="36" fitHeight="36">
+                            <image><Image url="@/lawoffice/resources/calendar.png"/></image>
+                        </ImageView>
+                        <Label text="Upcoming Appointments" styleClass="card-title"/>
+                        <Label fx:id="upcomingAppointmentsLabel" styleClass="card-value"/>
+                    </VBox>
+                </HBox>
+
+                <!-- Calendar + Appointments -->
+                <Label text="Appointment Calendar" styleClass="section-title"/>
+                <DatePicker fx:id="calendar" prefWidth="200" onAction="#onDateSelected"/>
+
+                <Label text="Appointments on Selected Date" styleClass="section-title"/>
+                <ListView fx:id="appointmentListView" prefHeight="130"/>
+
+                <!-- Case Table -->
+                <Label text="Recent Assigned Cases" styleClass="section-title"/>
+                <TableView fx:id="recentCaseTable" prefHeight="180">
+                    <columns>
+                        <TableColumn fx:id="caseIdCol" text="Case ID" prefWidth="100"/>
+                        <TableColumn fx:id="caseTypeCol" text="Case Type" prefWidth="200"/>
+                        <TableColumn fx:id="caseStatusCol" text="Status" prefWidth="150"/>
+                    </columns>
+                </TableView>
+                <HBox spacing="10" alignment="CENTER_RIGHT">
+                    <Button text="Mark as Complete" onAction="#markCaseAsComplete" styleClass="outline-button"/>
+                </HBox>
+            </VBox>
+
+            <!-- Profile Panel (hidden by default) -->
+            <VBox fx:id="profilePane" spacing="20" visible="false" managed="false" styleClass="profile-pane">
+                <padding><Insets top="30" right="30" bottom="30" left="30"/></padding>
+                <Label text="My Profile" styleClass="section-title"/>
+                <GridPane hgap="10" vgap="10">
+                    <Label text="Full Name:" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+                    <TextField fx:id="fullNameField" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+
+                    <Label text="Email:" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+                    <TextField fx:id="emailField" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+
+                    <Label text="Phone:" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+                    <TextField fx:id="phoneField" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+
+                    <Label text="Address:" GridPane.rowIndex="3" GridPane.columnIndex="0"/>
+                    <TextField fx:id="addressField" GridPane.rowIndex="3" GridPane.columnIndex="1"/>
+                </GridPane>
+                <HBox spacing="15">
+                    <Button text="Update" onAction="#updateProfile"/>
+                    <Button text="Back" onAction="#onDashboardClicked"/>
+                </HBox>
+                <Label fx:id="statusMessage" textFill="red"/>
+            </VBox>
+        </StackPane>
+    </center>
+</BorderPane>

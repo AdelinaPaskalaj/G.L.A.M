@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<AnchorPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="lawoffice.controller.RegisterCaseController"
+            prefWidth="600" prefHeight="550"
+            style="-fx-background-color: #f5f5dc;">
+    
+    <VBox alignment="TOP_CENTER" spacing="15" layoutX="50" layoutY="30" prefWidth="500">
+        <Label text="Register New Case"
+               style="-fx-font-size: 22px; -fx-font-weight: bold; -fx-text-fill: #808000;"/>
+        
+        <HBox spacing="10">
+            <Label text="Case Type:" minWidth="100"/>
+            <VBox>
+                <ComboBox fx:id="caseTypeComboBox" prefWidth="250"/>
+                <Label text="Fees are auto-calculated based on case type."
+                       style="-fx-font-size: 11px; -fx-text-fill: #666666;"/>
+            </VBox>
+        </HBox>
+
+        <HBox spacing="10">
+            <Label text="Start Date:" minWidth="100"/>
+            <DatePicker fx:id="startDatePicker" prefWidth="250"/>
+        </HBox>
+
+        <HBox spacing="10">
+            <Label text="Appointment Time:" minWidth="100"/>
+            <ComboBox fx:id="timeComboBox" prefWidth="250"/>
+        </HBox>
+
+        <HBox spacing="10">
+            <Label text="Fee (€):" minWidth="100"/>
+            <TextField fx:id="feeField" prefWidth="250" promptText="Auto-filled" editable="false"/>
+        </HBox>
+
+        <HBox spacing="10" alignment="TOP_LEFT">
+            <Label text="Details:" minWidth="100" alignment="TOP_LEFT"/>
+            <TextArea fx:id="detailsArea" prefWidth="350" prefHeight="100" wrapText="true"/>
+        </HBox>
+
+        <HBox spacing="20" alignment="CENTER">
+            <Button fx:id="submitButton" text="Submit"
+                    style="-fx-background-color: #808000; -fx-text-fill: white; -fx-font-weight: bold;"
+                    onAction="#submitCase"/>
+            <Button text="Cancel"
+                    style="-fx-background-color: #cccccc; -fx-text-fill: black;"
+                    onAction="#cancel"/>
+        </HBox>
+    </VBox>
+</AnchorPane>

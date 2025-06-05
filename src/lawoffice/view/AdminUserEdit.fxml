@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="lawoffice.controller.AdminUserEditController"
+            stylesheets="@/lawoffice/css/dashboard.css">
+
+    <center>
+        <VBox spacing="15" alignment="TOP_LEFT">
+            <padding><Insets top="30" right="40" bottom="30" left="40"/></padding>
+
+            <Label text="Edit User Profile" styleClass="header-label"/>
+
+            <Label text="Full Name:"/>
+            <TextField fx:id="fullNameField" promptText="Enter full name"/>
+
+            <Label text="Email:"/>
+            <TextField fx:id="emailField" promptText="Enter email"/>
+
+            <Label text="Phone:"/>
+            <TextField fx:id="phoneField" promptText="Enter phone number"/>
+
+            <Label text="Address:"/>
+            <TextField fx:id="addressField" promptText="Enter address"/>
+
+            <Label text="Password:"/>
+            <PasswordField fx:id="passwordField" promptText="Enter new password"/>
+
+            <HBox spacing="10" alignment="CENTER_RIGHT">
+                <Button text="Save Changes" onAction="#saveUserChanges" styleClass="login-button"/>
+                <Button text="Cancel" onAction="#cancelEdit" styleClass="outline-button"/>
+            </HBox>
+        </VBox>
+    </center>
+</BorderPane>

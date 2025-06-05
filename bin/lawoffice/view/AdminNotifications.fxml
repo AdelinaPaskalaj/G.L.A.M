@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="lawoffice.controller.AdminNotificationsController"
+            stylesheets="@/lawoffice/css/dashboard.css"
+            style="-fx-background-color: #F5F0E1;">
+
+    <!-- TOP BAR -->
+    <top>
+        <HBox spacing="10" alignment="CENTER_LEFT" style="-fx-background-color: #556B2F;">
+            <padding>
+                <Insets top="15" right="15" bottom="15" left="15"/>
+            </padding>
+            <Label text="System Notifications"
+                   style="-fx-text-fill: white; -fx-font-size: 20px; -fx-font-weight: bold;"/>
+        </HBox>
+    </top>
+
+    <!-- MAIN FORM -->
+    <center>
+        <VBox spacing="20"
+              style="-fx-background-color: white; -fx-padding: 30; -fx-background-radius: 10; -fx-effect: dropshadow(gaussian, #999999, 5, 0.5, 0, 2);"
+              alignment="CENTER">
+
+            <TextArea fx:id="messageField" promptText="Write your message here..." prefHeight="300"
+                      wrapText="true"
+                      style="-fx-font-size: 14px; -fx-border-color: #DDD; -fx-border-radius: 8;"/>
+
+            <Button text="Send to All Users" onAction="#sendNotification"
+                    style="-fx-background-color: #556B2F; -fx-text-fill: white; -fx-background-radius: 20; -fx-font-weight: bold;"
+                    prefWidth="200" alignment="CENTER"/>
+        </VBox>
+    </center>
+
+    <!-- BACK BUTTON -->
+    <bottom>
+        <HBox alignment="CENTER" style="-fx-padding: 20;">
+            <Button text="Back to Dashboard"
+                    onAction="#goBackToDashboard"
+                    style="-fx-background-color: white; -fx-border-color: #556B2F; -fx-text-fill: #556B2F; -fx-background-radius: 20; -fx-font-weight: bold;"/>
+        </HBox>
+    </bottom>
+</BorderPane>
